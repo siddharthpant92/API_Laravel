@@ -1,1 +1,1 @@
-# API_Laravel
+## Creating a basic [API using Laravel](https://medium.com/@devlob/creating-apis-in-laravel-5-5-using-api-resources-9850c1b70efb)
