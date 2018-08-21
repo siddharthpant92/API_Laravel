@@ -15,9 +15,9 @@ class ProductController extends Controller
 
 	public function updatePrice($id)
 	{
-		$product = Product::find($id);
-		$product->price = $product->price + 5;
-		$product->save();
-		return new ProductResource($product);
+		$product = new Product();
+		$updatedProduct = $product->updatePrice($id);
+		
+		return new ProductResource($updatedProduct);
 	}
 }
