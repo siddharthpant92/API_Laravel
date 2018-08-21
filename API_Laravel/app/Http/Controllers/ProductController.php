@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\Product as ProductResource;
+use App\Http\Resources\ProductCollection as ProductCollection;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -38,5 +39,19 @@ class ProductController extends Controller
 	public function doNothing()
 	{
 		return new ProductResource(null);
+	}
+
+	/**
+	 * Gets all the products and return it as the product resource, NOT the collection
+	 * @return [product collection] [all the products]
+	 */
+	public function getAllResource()
+	{
+		return ProductResource::collection(Product::all());
+	}
+
+	public function getAllCollection()
+	{
+		return new ProductCollection(Product::all());
 	}
 }

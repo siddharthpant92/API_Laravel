@@ -24,6 +24,7 @@ class Product extends JsonResource {
     			'random_key' => "random value",
     			'created_at' => (string)$this->created_at,
     			'updated_at' => (string)$this->updated_at,
+                'testResource' => 'test'
     		];
         }
         if($request->path() == 'api/doNothing');    
