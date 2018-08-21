@@ -16,6 +16,7 @@ class ProductController extends Controller
 	 */
 	public function show($id) 
 	{
+		ProductResource::withoutWrapping();	
 		return new ProductResource(Product::find($id));
 	}
 
@@ -29,6 +30,7 @@ class ProductController extends Controller
 		$product = new Product();
 		$updatedProduct = $product->updatePrice($id);
 		
+		ProductResource::withoutWrapping();
 		return new ProductResource($updatedProduct);
 	}
 
@@ -50,6 +52,10 @@ class ProductController extends Controller
 		return ProductResource::collection(Product::all());
 	}
 
+	/**
+	 * Gets all the products and return it as the product collection
+	 * @return [product collection] [all the products]
+	 */
 	public function getAllCollection()
 	{
 		return new ProductCollection(Product::all());
