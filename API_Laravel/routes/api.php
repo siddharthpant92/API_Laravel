@@ -22,3 +22,9 @@ Route::get('/products/{id}', 'ProductController@show');
 Route::post('/products/updatePrice/{id}', 'ProductController@updatePrice');
 
 Route::get('/doNothing', "ProductController@doNothing");
+
+Route::get('/getAll/resource', 'ProductController@getAllResource');
+
+Route::get('/getAll/collection', 'ProductController@getAllCollection');
+
+// Route::get('/relatedProduct/{productID}', 'RelatedProductController@getRelatedProduct')->name('getRelatedProduct');
