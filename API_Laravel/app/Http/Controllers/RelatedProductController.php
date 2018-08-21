@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class RelatedProductController extends Controller
 {
-    public static function getRelatedProduct($productID)
+    public function getRelatedProduct($productID)
     {
     	return new RelatedProductResource(RelatedProduct::find($productID));
     }

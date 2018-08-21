@@ -16,7 +16,7 @@ class RelatedProduct extends JsonResource
     public function toArray($request)
     {
         $productId = $request->id;
-        $relatedProduct = RelatedProductController::getRelatedProduct($productId);
+        $relatedProduct = (new RelatedProductController)->getRelatedProduct($productId);
 
         return [
             'related_product' => $relatedProduct->related_product,
