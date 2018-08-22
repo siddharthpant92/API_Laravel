@@ -17,14 +17,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/products/{id}', 'ProductController@show');
+Route::get('/products/{id}', 'APIControllers\ApiProductController@show');
 
-Route::post('/products/updatePrice/{id}', 'ProductController@updatePrice');
+Route::post('/products/updatePrice/{id}', 'APIControllers\ApiProductController@update');
 
-Route::get('/doNothing', "ProductController@doNothing");
+Route::get('/doNothing', "APIControllers\ApiProductController@doNothing");
 
-Route::get('/getAll/resource', 'ProductController@getAllResource');
+Route::get('/getAll/resource', 'APIControllers\ApiProductController@getAllResource');
 
-Route::get('/getAll/collection', 'ProductController@getAllCollection');
+Route::get('/getAll/collection', 'APIControllers\ApiProductController@getAllCollection');
 
-// Route::get('/relatedProduct/{productID}', 'RelatedProductController@getRelatedProduct')->name('getRelatedProduct');
+// Route::get('/relatedProduct/{productID}', 'APIControllers\ApiRelatedProductController@getRelatedProduct')->name('getRelatedProduct');

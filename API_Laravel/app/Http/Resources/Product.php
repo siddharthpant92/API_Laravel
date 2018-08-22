@@ -29,10 +29,10 @@ class Product extends JsonResource {
                 'testResource' => 'test'
     		];
         }
-        if($request->path() == 'api/doNothing');    
+        else  
         {
             return [
-                "test" => "test"
+                "test" => "do Nothing"
             ];
         }
 	}
