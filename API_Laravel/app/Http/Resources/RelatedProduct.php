@@ -3,7 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Controllers\RelatedProductController;
+use App\Http\Controllers\APIControllers\ApiRelatedProductController as ApiRelatedProductController;
 
 class RelatedProduct extends JsonResource
 {
@@ -14,9 +14,9 @@ class RelatedProduct extends JsonResource
      * @return array
      */
     public function toArray($request)
-    {
+    {   
         $productId = $request->id;
-        $relatedProduct = (new RelatedProductController)->getRelatedProduct($productId);
+        $relatedProduct = (new ApiRelatedProductController)->getRelatedProduct($productId);
 
         if(isset($relatedProduct->related_product))
         {

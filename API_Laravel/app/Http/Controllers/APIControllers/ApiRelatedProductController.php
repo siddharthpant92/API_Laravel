@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\APIControllers;
 
 use App\Http\Resources\RelatedProduct as RelatedProductResource;
 use App\RelatedProduct;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class RelatedProductController extends Controller
+class ApiRelatedProductController extends Controller
 {
     public function getRelatedProduct($productID)
     {

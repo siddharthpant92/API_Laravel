@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\APIControllers;
 
 use App\Http\Resources\Product as ProductResource;
 use App\Http\Resources\ProductCollection;
 use App\Product;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class ProductController extends Controller
+class ApiProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -48,6 +49,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
+        ProductResource::withoutWrapping();
         return new ProductResource(Product::find($id));
     }
 
@@ -93,6 +95,7 @@ class ProductController extends Controller
      */
     public function doNothing()
     {
+        ProductResource::withoutWrapping();
         return new ProductResource(null);
     }
 
@@ -102,6 +105,7 @@ class ProductController extends Controller
      */
     public function getAllResource()
     {
+        ProductResource::withoutWrapping();
         return ProductResource::collection(Product::all());
     }
 
@@ -111,6 +115,7 @@ class ProductController extends Controller
      */
      public function getAllCollection()
      {
+        ProductCollection::withoutWrapping();
         return new ProductCollection(Product::all());
      }
 }
