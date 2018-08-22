@@ -47,10 +47,19 @@ class ApiProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $isApi = true)
     {
         ProductResource::withoutWrapping();
-        return new ProductResource(Product::find($id));
+        if($isApi)
+        {
+            // Being called by an api route
+            return new ProductResource(Product::find($id));
+        }
+        else
+        {
+            // Being called by standard controller from web route
+            return Product::find($id);
+        }
     }
 
     /**
